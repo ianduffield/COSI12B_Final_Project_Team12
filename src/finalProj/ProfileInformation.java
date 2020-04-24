@@ -24,19 +24,11 @@ public class ProfileInformation{
 		File file = new File (username);
 		FileWriter write = new FileWriter(file);
 		PrintWriter input = new PrintWriter(write);
-		
-		input.print(35);
-		input.print("       ");
-
-		input.print(10000);
-
-		input.print("       ");
-		input.close();
 
 		
-//		input.print(question.getId());
-//		input.print("       ");
-//		input.close();
+	input.print(question.getId());
+		input.print("       ");
+	input.close();
 
 	}
 	
