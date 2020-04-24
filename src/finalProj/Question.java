@@ -13,24 +13,27 @@ public class Question {
 		// Instance variables for the class
 		String question;
 		String answer;
+		int id;
 		
 		// Secondary Constructor and setting instance variables
-		public Question(String question, String answer) {
+		public Question(String question, String answer, int id) {
 			this.question = question;
 			this.answer = answer;
+			this.id = id;
 		}
 		/*
-		 * The question asked
+		 * Getter methods
 		 */
 		public String getQuestion() {
 			return this.question;
 		}
 		
-		/*
-		 * The answer to the question
-		 */
 		public String getAnswer() {
 			return this.answer;
+		}
+		
+		public int getID() {
+			return this.id;
 		}
 		
 		/**
