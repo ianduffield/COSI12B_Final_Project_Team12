@@ -16,14 +16,6 @@ public class ReadQuestionsFile {
 	ArrayList<Question> questions = new ArrayList<Question>();
 	
 	/**
-	 * Testing the class
-	 * @param args
-	 */
-	public static void main(String[] args){
-		readFile("demoQ.txt");
-	}
-	
-	/**
 	 * If no questions are asked, refers to this method
 	 * @throws FileNotFoundException
 	 */
@@ -57,9 +49,13 @@ public class ReadQuestionsFile {
 			questions.add(currentQuestion);
 			
 			// Code used for testing
-			System.out.println("Question: " + questionAnswer[0]);
-			System.out.println("Answer: " + questionAnswer[1]);
-			System.out.println();
+			//System.out.println("Question: " + questionAnswer[0]);
+			//System.out.println("Answer: " + questionAnswer[1]);
+			//System.out.println();
 		}
+	}
+	
+	public ArrayList<Question> getQuestions(){
+		return questions;
 	}
 }
