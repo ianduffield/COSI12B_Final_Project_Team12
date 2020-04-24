@@ -54,4 +54,8 @@ public class ReadQuestionsFile {
 			//System.out.println();
 		}
 	}
+	
+	public ArrayList<Question> getQuestions(){
+		return questions;
+	}
 }
