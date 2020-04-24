@@ -23,21 +23,25 @@ public class UserInterface{
 		currentUser.getQuestion();
 		while(!input.nextLine().equals("STOP")){
 			String[] answer = input.nextLine().split(" ");
-			int prevScore = currentUser.getCorrect();
-			for(int i = 0; i < answer.length; i++){
-				for(int j = 0; j < currentUser.getAnswer().size(); j++){
-					if(answer[i].toLowerCase().equals(currentUser.getAnswer().get(j))){
-						currentUser.setCorrect(1);
-						System.out.println("That's right! The correct answer was " + currentUser.getAnswer());
-						break;
-					}
-				}
-			} if (prevScore != currentUser.getCorrect()){
-				System.out.println("Sorry, the right answer was " + currentUser.getAnswer());
-			}
+			user.checkAnswer(answer);
 		}
 	}
 	public Question randomQueue(){
 		 Queue<Integer> q = new LinkedList<>();
+	}
+	
+	public void checkAnswer(String[] answer){
+		int prevScore = currentUser.getCorrect();
+		for(int i = 0; i < answer.length; i++){
+			for(int j = 0; j < currentUser.getAnswer().size(); j++){
+				if(answer[i].toLowerCase().equals(currentUser.getAnswer().get(j))){
+					currentUser.setCorrect(1);
+					System.out.println("That's right! The correct answer was " + currentUser.getAnswer());
+					break;
+				}
+			}
+		} if (prevScore != currentUser.getCorrect()){
+			System.out.println("Sorry, the right answer was " + currentUser.getAnswer());
+		}
 	}
 }
