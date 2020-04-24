@@ -17,8 +17,8 @@ public class UserInterface{
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
 		ProfileInformation currentUser = new ProfileInformation(username);
+		currentUser.getQuestion();
 		while(!input.nextLine().equals("STOP")){
-			currentUser.getQuestion();
 			String[] answer = input.nextLine().split(" ");
 			int prevScore = currentUser.getCorrect();
 			for(int i = 0; i < answer.length; i++){
@@ -34,5 +34,7 @@ public class UserInterface{
 			}
 		}
 	}
-
+	public Question randomQ(){
+		
+	}
 }
