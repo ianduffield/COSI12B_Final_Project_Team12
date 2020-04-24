@@ -9,11 +9,11 @@ import java.util.Scanner;
  * Retrieve questions and answers from file and adds them to questions
  * 
  * @author Eric
- *
+ * Make sure to have answer as array of strings
  */
 public class ReadQuestionsFile {
 	
-	ArrayList<Questions> questions = new ArrayList<Questions>();
+	ArrayList<Question> questions = new ArrayList<Question>();
 	
 	/**
 	 * If no questions are asked, refers to this method
@@ -32,38 +32,26 @@ public class ReadQuestionsFile {
 	{
 		Scanner scan = new Scanner(new File(fileName + ".txt"));
 		
-		int questionNumber = 0;
-		String question;
-		String answer;
-		
 		// While loop used for while file has a next line
 		while(scan.hasNextLine()) {
-			String line = scan.nextLine(); // line is the entire line
 			
-			Scanner lineScan = new Scanner(line); // Scans the line
+			// Makes a string of the next line
+			String line = scan.nextLine();
 			
 			// Setting values to numbers
-			questionNumber = lineScan.nextInt();
-			question = lineScan.next();
-			answer = lineScan.next();
+			// Index 0: Question Index 1: Answer
+			String[] questionAnswer = line.split(",");
 			
-			questions.add()
+			// Creating new Question object
+			Question currentQuestion = new Question(questionAnswer[0], questionAnswer[1]);
+			
+			// Adding Question object to ArrayList of questions
+			questions.add(currentQuestion);
+			
+			// Code used for testing
+			//System.out.println("Question: " + questionAnswer[0]);
+			//System.out.println("Answer: " + questionAnswer[1]);
+			//System.out.println();
 		}
-	}
-	
-	public void setQuestion() {
-		
-	}
-	
-	public void setAnswer() {
-		
-	}
-	
-	public String getQuestion() {
-		
-	}
-	
-	public String getCorrectAnswer() {
-		
 	}
 }
