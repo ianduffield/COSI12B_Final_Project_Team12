@@ -2,8 +2,9 @@ package finalProj;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random; 
 import java.util.LinkedList;
+import java.util.Random; 
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -31,15 +32,26 @@ public class UserInterface{
 	}
 	public Question randomQueue(){
 		// Creates a queue of numbers put in a random order based on the quiz length.
-		
+		// You don't have to worry about repeat questions with these. 
 		 Queue<Integer> q = new LinkedList<>();
+		 int[] questionList = new int[questions.size()];
 		 int QuizLength = questions.size(); //This is meant to be the number of questions in the quiz.
-		 for (int question; question < QuizLength ; question++) {
-			 q.add(question);
+		 //Above two lines don't work, please replace "questions.size" to appropriate variable.
+		 for (int quest; quest < QuizLength ; quest++) {
+			 questionList[quest] = quest;
 		 }
-		 ArrayList <Integer> questionList = new ArrayList<>(q);
-		 Collections.shuffle(questionList);
-		 
+		 Random rng = new Random();
+		 // This loop is responsible for randomizing the order.	
+			for (int i = 0; i < questionList.length; i++) {
+				int randomIndex = rng.nextInt(questionList.length);
+				int temp = questionList[randomIndex];
+				questionList[randomIndex] = questionList[i];
+				questionList[i] = temp;
+			}
+		 for (int question; question < QuizLength ; question++) {
+			 q.add(questionList[question]);
+		 }
+		 //q.pop() can be used to remove a question that is already done.
  	// The interface uses this method to call and generate a new question using the current queue number available. 
 	}
 	
