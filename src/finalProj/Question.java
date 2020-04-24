@@ -15,7 +15,13 @@ public class Question {
 		String answer;
 		int id;
 		
-		// Secondary Constructor and setting instance variables
+		// Secondary constructor for setting instance variables for writeQuestionFiles
+		public Question(String question, String answer) {
+			this.question = question;
+			this.answer = answer;
+		}
+		
+		// Secondary constructor and setting instance variables for ReadQuestionsFile
 		public Question(String question, String answer, int id) {
 			this.question = question;
 			this.answer = answer;
