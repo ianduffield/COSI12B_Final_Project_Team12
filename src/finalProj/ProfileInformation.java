@@ -7,6 +7,10 @@ package finalProj;
  */
 
 // I believe that we wanted to be able to keep track of a users information
-public abstract class ProfileInformation{
+public class ProfileInformation{
+	private String username;
+	private Questions question;
+	private 
+	
 	
 }
