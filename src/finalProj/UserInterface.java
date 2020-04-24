@@ -1,7 +1,10 @@
 package finalProj;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random; 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  *Constructor for ProfileInformation needs to have username, a String username is passed
@@ -28,11 +31,15 @@ public class UserInterface{
 	}
 	public Question randomQueue(){
 		// Creates a queue of numbers put in a random order based on the quiz length.
+		
 		 Queue<Integer> q = new LinkedList<>();
 		 int QuizLength = questions.size(); //This is meant to be the number of questions in the quiz.
 		 for (int question; question < QuizLength ; question++) {
-			 
+			 q.add(question);
 		 }
+		 ArrayList <Integer> questionList = new ArrayList<>(q);
+		 Collections.shuffle(questionList);
+		 
  	// The interface uses this method to call and generate a new question using the current queue number available. 
 	}
 	
