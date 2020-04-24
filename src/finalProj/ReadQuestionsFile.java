@@ -32,6 +32,9 @@ public class ReadQuestionsFile {
 	{
 		Scanner scan = new Scanner(new File(fileName + ".txt"));
 		
+		// Index used for the ID of the question
+		int index = 0;
+		
 		// While loop used for while file has a next line
 		while(scan.hasNextLine()) {
 			
@@ -43,10 +46,12 @@ public class ReadQuestionsFile {
 			String[] questionAnswer = line.split(",");
 			
 			// Creating new Question object
-			Question currentQuestion = new Question(questionAnswer[0], questionAnswer[1]);
+			Question currentQuestion = new Question(questionAnswer[0], questionAnswer[1], index);
 			
 			// Adding Question object to ArrayList of questions
 			questions.add(currentQuestion);
+			
+			index++;
 			
 			// Code used for testing
 			//System.out.println("Question: " + questionAnswer[0]);
