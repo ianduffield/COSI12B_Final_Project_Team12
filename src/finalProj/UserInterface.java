@@ -1,5 +1,8 @@
 package finalProj;
 import java.util.Scanner;
+import java.util.Random; 
+import java.util.LinkedList;
+
 /**
  *Constructor for ProfileInformation needs to have username, a String username is passed
  *
@@ -10,7 +13,7 @@ import java.util.Scanner;
  *
  */
 public class UserInterface{
-
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Platinum Trivia App!");
 		System.out.println("Please enter your username as one String: ");
@@ -34,7 +37,7 @@ public class UserInterface{
 			}
 		}
 	}
-	public Question randomQ(){
-		
+	public Question randomQueue(){
+		 Queue<Integer> q = new LinkedList<>();
 	}
 }
