@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 /**
  * Retrieve questions and answers from file and adds them to questions
- * @author ericw
+ * @author Eric
  *
  */
-public class ReadQuestionsFile implements Questions{
+public class ReadQuestionsFile {
 	
 	ArrayList<Questions> questions = new ArrayList<Questions>();
 	

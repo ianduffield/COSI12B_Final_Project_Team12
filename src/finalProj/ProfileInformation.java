@@ -2,7 +2,7 @@ package finalProj;
 
 /**
  * Find user's profile and retrieves information from their file
- * @author ianduffield
+ * @author Ghazal
  *
  */
 
