@@ -15,7 +15,7 @@ public class ProfileInformation{
 	
 	public void ProfileInformation (String username, Questions question){
 		this.username = username;
-		this.question = question;
+		this.question = question;;
 		
 	}
 	public static void main (String[] args) throws IOException{
