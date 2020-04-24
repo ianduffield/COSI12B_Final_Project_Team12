@@ -25,8 +25,8 @@ public class UserInterface{
 			String[] answer = input.nextLine().split(" ");
 			int prevScore = currentUser.getCorrect();
 			for(int i = 0; i < answer.length; i++){
-				for(int j = 0; j < currentUser.getAnswer().length; j++){
-					if(answer[i].toLowerCase().equals(currentUser.getAnswer(j))){
+				for(int j = 0; j < currentUser.getAnswer().size(); j++){
+					if(answer[i].toLowerCase().equals(currentUser.getAnswer().get(j))){
 						currentUser.setCorrect(1);
 						System.out.println("That's right! The correct answer was " + currentUser.getAnswer());
 						break;
