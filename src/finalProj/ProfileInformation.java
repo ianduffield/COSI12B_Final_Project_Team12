@@ -19,14 +19,16 @@ public class ProfileInformation{
 		
 //	}
 	public static void main (String[] args) throws IOException{
-		String username1 = "test";
+		String username1 = "username2";
 		String username = username1+".txt";
 		File file = new File (username);
 		FileWriter write = new FileWriter(file);
 		PrintWriter input = new PrintWriter(write);
 		
-		input.print("35");
-		input.print("45");
+		input.print(35);
+		input.print("       ");
+
+		input.print(10000);
 
 		input.print("       ");
 		input.close();
