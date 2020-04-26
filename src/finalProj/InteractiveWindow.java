@@ -3,10 +3,20 @@ package finalProj;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.UIManager;
+import java.awt.Window.Type;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InteractiveWindow {
 
 	private JFrame frame;
+	private JTextField txtWelcomeToGroup;
+	private JTextField txtWhichOfThe;
 
 	/**
 	 * Launch the application.
@@ -36,8 +46,46 @@ public class InteractiveWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setBackground(UIManager.getColor("Focus.color"));
+		frame.getContentPane().setForeground(UIManager.getColor("EditorPane.background"));
+		frame.getContentPane().setBackground(UIManager.getColor("CheckBox.select"));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
+		
+		txtWelcomeToGroup = new JTextField();
+		txtWelcomeToGroup.setBackground(Color.PINK);
+		txtWelcomeToGroup.setForeground(Color.WHITE);
+		txtWelcomeToGroup.setText("                Welcome to Group 12 Quiz Application");
+		frame.getContentPane().add(txtWelcomeToGroup);
+		txtWelcomeToGroup.setColumns(30);
+		
+		txtWhichOfThe = new JTextField();
+		txtWhichOfThe.setForeground(new Color(255, 250, 205));
+		txtWhichOfThe.setBackground(new Color(222, 184, 135));
+		txtWhichOfThe.setText("                     Which of the following are you?");
+		frame.getContentPane().add(txtWhichOfThe);
+		txtWhichOfThe.setColumns(30);
+		
+		JButton btnNewButton = new JButton("Guest");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton.setForeground(new Color(165, 42, 42));
+		btnNewButton.setBackground(new Color(255, 240, 245));
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewUser = new JButton("New User");
+		btnNewUser.setForeground(new Color(165, 42, 42));
+		btnNewUser.setBackground(new Color(255, 240, 245));
+		frame.getContentPane().add(btnNewUser);
+		
+		JButton btnReturningUser = new JButton("Returning User");
+		btnReturningUser.setForeground(new Color(165, 42, 42));
+		btnReturningUser.setBackground(new Color(255, 240, 245));
+		frame.getContentPane().add(btnReturningUser);
 	}
 
 }
