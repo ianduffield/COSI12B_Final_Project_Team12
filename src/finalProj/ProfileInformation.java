@@ -1,5 +1,6 @@
 package finalProj;
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * Find user's profile and retrieves information from their file
@@ -14,7 +15,7 @@ public class ProfileInformation{
  	private Question question;
  	
  	
- 	public void ProfileInformation (String user, Question question){
+ 	public ProfileInformation (String user, Question question){
 		this.username = user;
 		this.question = question;
 		
@@ -62,6 +63,19 @@ public class ProfileInformation{
 
 	}
 	
+ 	public void readUserQID() throws FileNotFoundException {
+		String username = this.username+".txt";
+ 		try (Scanner read = new Scanner (new File (username))) {
+			while (read.hasNext()){
+				int QID = read.nextInt(); //how you want to use this? also how were user answers stored again?
+				
+				
+			}
+		}
+ 		
+ 	}
+ 	
+ 	
 	
 	
 }
