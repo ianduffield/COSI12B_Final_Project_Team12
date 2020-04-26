@@ -15,19 +15,13 @@ import java.util.Scanner;
 public class ProfileInformation{
 	private String username;
  	private Question question;
- 	private int score; 
  	
  	
  	public ProfileInformation (String user){
 		this.username = user;
 		
-		
 	}
- 	public ProfileInformation (int score){
-		this.score = score;
-		
-		
-	}
+ 
  	
  	public ProfileInformation (Question question) {
  		this.question = question;
@@ -45,7 +39,7 @@ public class ProfileInformation{
  	
  	
  	
-	public void UserProgress() throws IOException {
+	public void UserProgress(int QID) throws IOException {
  		
  		String username = this.username+".txt";
 		File file = new File (username);
@@ -53,7 +47,7 @@ public class ProfileInformation{
 		PrintWriter input = new PrintWriter(write);
 
 		
-	input.print(this.question.getID());
+	input.print(QID);
 		input.print("       ");
 	input.close();
  	}
@@ -61,7 +55,7 @@ public class ProfileInformation{
  	
  	
  	
-	public void Score() throws IOException {
+	public void Score(int score) throws IOException {
 		String username = this.username+"Score"+".txt";
 		File file = new File (username);
 		FileWriter write = new FileWriter(file);
@@ -75,9 +69,17 @@ public class ProfileInformation{
  	}
  	
  
+	public void PreviousScore() throws IOException {
+		String username = this.username+"Score"+".txt";
+		try (Scanner read = new Scanner (new File (username))) {
+			while (read.hasNext()){
+				int QID = read.nextInt();
+		
+ 		
+ 	}
+		}
 	
-	
- 
+		}
  	
 	
  	public void readUserQID() throws FileNotFoundException {
@@ -91,6 +93,21 @@ public class ProfileInformation{
 		}
  		
  	}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
  	/*
  	public Question randomQueue(){
 		// Creates a queue of numbers put in a random order based on the quiz length.
