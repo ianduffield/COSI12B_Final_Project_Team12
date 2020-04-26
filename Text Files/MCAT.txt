@@ -1,0 +1,11 @@
+What is a gem diol?,two hydroxyl group bound to the same atom
+What chemical converts primary alcohol to aldehyde?,Pyridinium Chlorochromate PCC
+What kind of chemical is Pyridinium Chlorochromate (PCC)?,oxidizing agent
+What chemical converts primary alcohol to aldehyde?,any oxidizing agent e.g. PCC Pyridinium Chlorochromate
+Name two compounds that alcohols can react with to become better leaving groups?,Mesylate -SO3CH3 & Tosylate -SO3C6H4CH3 *key is the SO3 group
+What is the protecting group on aldehyde called?,acetal (two OR groups bound to the carbonyl C)
+What is the protecting group on ketone called?,ketal (two OR groups bound to the carbonyl C)
+Name all the oxidizing agents you know (use abbreviation)?,PCC KMnO4 CrO3 Ag2O H2O2
+Name all the reducing agents you know (use abbreviation)?,NABH4 LAH or LiAlH4
+Name the strongest reducing agent known to an MCAT learner (use abbreviation)?,LAH or LiAlH4
+To what compound does LAH reduces carboxylic acid and esters?,primary 1 alcohol
