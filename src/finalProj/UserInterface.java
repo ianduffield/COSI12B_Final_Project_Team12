@@ -19,15 +19,20 @@ import java.util.Queue;
 public class UserInterface{
 	
 	public static void main(String[] args) {
+		UserInterface user = new UserInterface();
 		System.out.println("Welcome to the Platinum Trivia App!");
 		System.out.println("Please enter your username as one String: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
 		ProfileInformation currentUser = new ProfileInformation(username);
-		currentUser.getQuestion();
-		while(!input.nextLine().equals("STOP")){
+		ReadQFiles quizzes = new ReadQFiles();
+		int index = 0;
+		quizzes.getQuestions().get(index).getQuestion();
+		while(!input.nextLine().equalsIgnoreCase("STOP")){
 			String[] answer = input.nextLine().split(" ");
-			user.checkAnswer(answer);
+			user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(index));
+			index++;
+			quizzes.getQuestions().get(index).getQuestion();
 		}
 	}
 	public Question randomQueue(){
@@ -55,18 +60,18 @@ public class UserInterface{
  	// The interface uses this method to call and generate a new question using the current queue number available. 
 	}
 	
-	public void checkAnswer(String[] answer){
+	public void checkAnswer(String[] answer, ProfileInformation currentUser, ReadQFiles quizzes, Question currentQ){
 		int prevScore = currentUser.getCorrect();
 		for(int i = 0; i < answer.length; i++){
-			for(int j = 0; j < currentUser.getAnswer().size(); j++){
-				if(answer[i].toLowerCase().equals(currentUser.getAnswer().get(j))){
+			for(int j = 0; j < currentQ.getAnswerList().size(); j++){
+				if(answer[i].toLowerCase().equals(currentQ.getAnswerList().get(j).toLowerCase()))){
 					currentUser.setCorrect(1);
-					System.out.println("That's right! The correct answer was " + currentUser.getAnswer());
+					System.out.println("That's right! The correct answer was " + currentQ.getAnswer());
 					break;
 				}
 			}
 		} if (prevScore != currentUser.getCorrect()){
-			System.out.println("Sorry, the right answer was " + currentUser.getAnswer());
+			System.out.println("Sorry, the right answer was " + currentQ.getAnswer());
 		}
 	}
 }
