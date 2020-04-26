@@ -48,7 +48,7 @@ public class Question {
 		 */
 		public ArrayList<String> getAnswerList() {
 			// Scanning the answer
-			Scanner answerScan = new Scanner(getAnswer()).useDelimiter(" ");
+			Scanner answerScan = new Scanner(getAnswer());
 			
 			// Creating an ArrayList to be sent to UserInterface?
 			ArrayList<String> answerArray = new ArrayList<String>();
