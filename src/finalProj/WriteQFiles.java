@@ -5,7 +5,7 @@ import java.io.*;
 
 public class WriteQFiles {
 	
-	public WriteQFiles(ReadQFiles Q) {// Need to be passed original readQFiles
+	public WriteQFiles(ReadQFiles q) {// Need to be passed original readQFiles
 		
 		// Access to keyboard
 		Scanner keyboard = new Scanner(System.in);
@@ -45,9 +45,11 @@ public class WriteQFiles {
 			}
 		}
 		
+		q.quizzes.add(quizName);
+		
 		// Writing the questions to a file
 		try {
-		writeQuizFile(Q.getQuizzes());
+		writeQuizFile(q.getQuizzes());
 		writeQuestionFile(questions, quizName);
 		}
 		catch (IOException ex){
@@ -64,7 +66,7 @@ public class WriteQFiles {
 		// For loop to go through quizzes ArrayList
 		for(String index: quizzes) {
 			// Taking String at that array
-			String quiz = index;
+			String quiz = index + "\r\n";
 			
 			// Writing to File
 			bw.write(quiz);
@@ -82,7 +84,7 @@ public class WriteQFiles {
 			String answer = index.getAnswer();
 			
 			// Writing to file
-			String output = questionText + "," + answer;
+			String output = questionText + "," + answer +"\r\n";
 			bw.write(output);
 		}
 		bw.close();

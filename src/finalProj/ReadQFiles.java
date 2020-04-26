@@ -32,6 +32,14 @@ public class ReadQFiles {
 			// Adding lines to quizzes ArrayList
 			quizzes.add(line);
 		}
+		
+		// Retrieving information from console
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Please select a quiz:");
+		String quiz = keyboard.nextLine();
+		
+		// 
+		readQuestionFile(quiz);
 	}
 	
 	/**
@@ -39,7 +47,7 @@ public class ReadQFiles {
 	 * @param fileName
 	 * @throws FileNotFoundException
 	 */
-	public void readQuestionFiles(String fileName) throws FileNotFoundException
+	private void readQuestionFile(String fileName) throws FileNotFoundException
 	{
 		Scanner scan = new Scanner(new File(fileName + ".txt"));
 		
