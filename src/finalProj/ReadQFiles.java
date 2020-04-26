@@ -11,16 +11,27 @@ import java.util.Scanner;
  * @author Eric
  * Make sure to have answer as array of strings
  */
-public class ReadQuestionsFile {
+public class ReadQFiles {
 	
 	ArrayList<Question> questions = new ArrayList<Question>();
 	
-	/**
-	 * If no questions are asked, refers to this method
-	 * @throws FileNotFoundException
-	 */
-	public void readFile() throws FileNotFoundException {
-		readFile("quiz.qs");
+	ArrayList<String> quizzes = new ArrayList<String>();
+	
+	// Used to read quiz file
+	public ReadQFiles() throws FileNotFoundException{
+		// Opening Quizzes File
+		Scanner scan = new Scanner(new File("Quizzes.txt"));
+		
+		System.out.println("Here are all avaliable quizzes:");
+		
+		// While loop to scan through file
+		while(scan.hasNextLine()) {
+			String line = scan.nextLine();
+			System.out.println(line);
+			
+			// Adding lines to quizzes ArrayList
+			quizzes.add(line);
+		}
 	}
 	
 	/**
@@ -28,7 +39,7 @@ public class ReadQuestionsFile {
 	 * @param fileName
 	 * @throws FileNotFoundException
 	 */
-	public void readFile(String fileName) throws FileNotFoundException
+	public void readQuestionFiles(String fileName) throws FileNotFoundException
 	{
 		Scanner scan = new Scanner(new File(fileName + ".txt"));
 		
@@ -62,5 +73,9 @@ public class ReadQuestionsFile {
 	
 	public ArrayList<Question> getQuestions(){
 		return questions;
+	}
+	
+	public ArrayList<String> getQuizzes(){
+		return quizzes;
 	}
 }
