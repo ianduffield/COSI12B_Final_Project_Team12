@@ -1,4 +1,6 @@
 package finalProj;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,23 +20,26 @@ import java.util.Queue;
  */
 public class UserInterface{
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException{
 		UserInterface user = new UserInterface();
 		System.out.println("Welcome to the Platinum Trivia App!");
-		System.out.println("Please enter your username as one String: ");
+		System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
 		ProfileInformation currentUser = new ProfileInformation(username);
+		int score = 0;
 		ReadQFiles quizzes = new ReadQFiles();
 		int index = 0;
+		
 		quizzes.getQuestions().get(index).getQuestion();
 		while(!input.nextLine().equalsIgnoreCase("STOP")){
 			String[] answer = input.nextLine().split(" ");
-			user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(index));
+			user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(index), score);
 			index++;
 			quizzes.getQuestions().get(index).getQuestion();
-		}
-	}
+		} System.out.println("Hope you had fun! Your score for this session was " + score);
+		currentUser.Score(score);
+	} 
 	public Question randomQueue(){
 		// Creates a queue of numbers put in a random order based on the quiz length.
 		// You don't have to worry about repeat questions with these. 
@@ -60,18 +65,16 @@ public class UserInterface{
  	// The interface uses this method to call and generate a new question using the current queue number available. 
 	}
 	
-	public void checkAnswer(String[] answer, ProfileInformation currentUser, ReadQFiles quizzes, Question currentQ){
-		int prevScore = currentUser.getCorrect();
+	public int checkAnswer(String[] answer, ProfileInformation currentUser, ReadQFiles quizzes, Question currentQ, int score) throws IOException{
 		for(int i = 0; i < answer.length; i++){
 			for(int j = 0; j < currentQ.getAnswerList().size(); j++){
-				if(answer[i].toLowerCase().equals(currentQ.getAnswerList().get(j).toLowerCase()))){
-					currentUser.setCorrect(1);
+				if(answer[i].toLowerCase().equals(currentQ.getAnswerList().get(j).toLowerCase())){
+					score += 1;
 					System.out.println("That's right! The correct answer was " + currentQ.getAnswer());
-					break;
+					return score;
 				}
-			}
-		} if (prevScore != currentUser.getCorrect()){
-			System.out.println("Sorry, the right answer was " + currentQ.getAnswer());
-		}
+			} System.out.println("Sorry, the right answer was " + currentQ.getAnswer());
+		} currentUser.UserProgress(currentQ.id);
+		return score;
 	}
 }

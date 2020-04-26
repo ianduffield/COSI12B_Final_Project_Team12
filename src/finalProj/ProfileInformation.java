@@ -14,7 +14,6 @@ import java.util.Scanner;
 // I believe that we wanted to be able to keep track of a users information
 public class ProfileInformation{
 	private String username;
- 	private Question question;
  	
  	
  	public ProfileInformation (String user){
@@ -22,10 +21,6 @@ public class ProfileInformation{
 		
 	}
  
- 	
- 	public ProfileInformation (Question question) {
- 		this.question = question;
- 	}
 	
  	
  	public void newUserFile() throws IOException{
