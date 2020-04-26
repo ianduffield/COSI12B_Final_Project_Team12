@@ -15,10 +15,16 @@ import java.util.Scanner;
 public class ProfileInformation{
 	private String username;
  	private Question question;
+ 	private int score; 
  	
  	
  	public ProfileInformation (String user){
 		this.username = user;
+		
+		
+	}
+ 	public ProfileInformation (int score){
+		this.score = score;
 		
 		
 	}
@@ -27,37 +33,21 @@ public class ProfileInformation{
  		this.question = question;
  	}
 	
+ 	
  	public void newUserFile() throws IOException{
  		//This method is called when a user is a first time user
 		String username = this.username+".txt";
 		File file = new File (username);
-		FileWriter write = new FileWriter(file);
-		PrintWriter input = new PrintWriter(write);
-
-		
-	input.print(this.question.getID());
-		input.print("       ");
-	input.close();
-
-	}
 	
- 	public void GuestUserFile() throws IOException{
- 		//This method is called for users who log in as a guest. Their information is overwritten any time another guest logs in.
-		String username = "Guest.txt";
-		File file = new File (username);
-		FileWriter write = new FileWriter(file);
-		PrintWriter input = new PrintWriter(write);
-
-		
-	input.print(this.question.getID());
-		input.print("       ");
-	input.close();
 
 	}
  	
- 	public void oldUserInput() throws IOException{
- 		//This method is called when a returning user logs in. 
-		String username = this.username+".txt";
+ 	
+ 	
+ 	
+	public void UserProgress() throws IOException {
+ 		
+ 		String username = this.username+".txt";
 		File file = new File (username);
 		FileWriter write = new FileWriter(file, true);
 		PrintWriter input = new PrintWriter(write);
@@ -66,8 +56,29 @@ public class ProfileInformation{
 	input.print(this.question.getID());
 		input.print("       ");
 	input.close();
+ 	}
+ 		
+ 	
+ 	
+ 	
+	public void Score() throws IOException {
+		String username = this.username+"Score"+".txt";
+		File file = new File (username);
+		FileWriter write = new FileWriter(file);
+		PrintWriter input = new PrintWriter(write);
 
-	}
+		
+	input.print(score);
+	input.close();
+		
+ 		
+ 	}
+ 	
+ 
+	
+	
+ 
+ 	
 	
  	public void readUserQID() throws FileNotFoundException {
 		String username = this.username+".txt";
@@ -80,7 +91,7 @@ public class ProfileInformation{
 		}
  		
  	}
- 	
+ 	/*
  	public Question randomQueue(){
 		// Creates a queue of numbers put in a random order based on the quiz length.
 		// You don't have to worry about repeat questions with these. 
@@ -93,4 +104,34 @@ public class ProfileInformation{
 		 }
 	
 	
+}
+
+
+ 	public void GuestUserFile() throws IOException{
+ 		//This method is called when a user is a first time user
+		String username = "Guest.txt";
+		File file = new File (username);
+
+
+	}
+ 	
+
+ 	
+	public void GuestUserProgress() throws IOException{
+ 		String username = "Guest.txt";
+		File file = new File (username);
+		FileWriter write = new FileWriter(file, true);
+		PrintWriter input = new PrintWriter(write);
+
+			
+	input.print(this.question.getID());
+		input.print("       ");
+	input.close();
+	
+
+	}
+ 	
+
+
+ 	*/
 }
