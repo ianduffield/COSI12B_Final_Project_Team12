@@ -21,6 +21,7 @@ public class InteractiveWindow2 {
 
 	/**
 	 * Launch the application.
+	 * @author Ghazal
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
