@@ -28,9 +28,9 @@ public class UserInterface{
 		String username = input.nextLine();
 		ProfileInformation currentUser = new ProfileInformation(username);
 		int score = 0;
-		ReadQFiles quizzes = new ReadQFiles();
+		ReadQFiles quizzes= new ReadQFiles();
 		int index = 0;
-		
+		userInterface.randomQueue(quizzes.getQuestions().size());
 		quizzes.getQuestions().get(index).getQuestion();
 		while(!input.nextLine().equalsIgnoreCase("STOP")){
 			String[] answer = input.nextLine().split(" ");
