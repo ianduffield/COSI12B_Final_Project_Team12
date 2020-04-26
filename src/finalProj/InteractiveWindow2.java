@@ -73,6 +73,7 @@ public class InteractiveWindow2 {
 			
 			//action of the GUEST BUTTON
 			public void actionPerformed(ActionEvent e) {
+				
 
 			}
 		});
@@ -99,6 +100,7 @@ public class InteractiveWindow2 {
 			//action of the RETURNING USER BUTTON
 
 			public void actionPerformed(ActionEvent e) {
+				
 				
 			}
 		});

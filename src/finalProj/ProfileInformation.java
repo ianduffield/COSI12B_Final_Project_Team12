@@ -1,5 +1,7 @@
 package finalProj;
 import java.io.*;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
@@ -15,11 +17,15 @@ public class ProfileInformation{
  	private Question question;
  	
  	
- 	public ProfileInformation (String user, Question question){
+ 	public ProfileInformation (String user){
 		this.username = user;
-		this.question = question;
+		
 		
 	}
+ 	
+ 	public ProfileInformation (Question question) {
+ 		this.question = question;
+ 	}
 	
  	public void newUserFile() throws IOException{
  		//This method is called when a user is a first time user
@@ -75,7 +81,16 @@ public class ProfileInformation{
  		
  	}
  	
- 	
+ 	public Question randomQueue(){
+		// Creates a queue of numbers put in a random order based on the quiz length.
+		// You don't have to worry about repeat questions with these. 
+		 Queue<Integer> q = new LinkedList<>();
+		 int[] questionList = new int[questions.size()];
+		 int QuizLength = questions.size(); //This is meant to be the number of questions in the quiz.
+		 //Above two lines don't work, please replace "questions.size" to appropriate variable.
+		 for (int quest; quest < QuizLength ; quest++) {
+			 questionList[quest] = quest;
+		 }
 	
 	
 }
