@@ -48,21 +48,21 @@ public class InteractiveWindow {
 		frame = new JFrame();
 		frame.setBackground(UIManager.getColor("Focus.color"));
 		frame.getContentPane().setForeground(UIManager.getColor("EditorPane.background"));
-		frame.getContentPane().setBackground(UIManager.getColor("CheckBox.select"));
+		frame.getContentPane().setBackground(new Color(255, 204, 255));
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
 		
 		txtWelcomeToGroup = new JTextField();
 		txtWelcomeToGroup.setBackground(Color.PINK);
-		txtWelcomeToGroup.setForeground(Color.WHITE);
+		txtWelcomeToGroup.setForeground(new Color(102, 51, 204));
 		txtWelcomeToGroup.setText("                Welcome to Group 12 Quiz Application");
 		frame.getContentPane().add(txtWelcomeToGroup);
 		txtWelcomeToGroup.setColumns(30);
 		
 		txtWhichOfThe = new JTextField();
-		txtWhichOfThe.setForeground(new Color(255, 250, 205));
-		txtWhichOfThe.setBackground(new Color(222, 184, 135));
+		txtWhichOfThe.setForeground(new Color(0, 51, 255));
+		txtWhichOfThe.setBackground(new Color(255, 204, 153));
 		txtWhichOfThe.setText("                     Which of the following are you?");
 		frame.getContentPane().add(txtWhichOfThe);
 		txtWhichOfThe.setColumns(30);
