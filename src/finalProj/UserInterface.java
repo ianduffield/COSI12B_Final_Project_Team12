@@ -40,14 +40,14 @@ public class UserInterface{
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
 		currentUser.Score(score);
 	} 
-	public Question randomQueue(){
+	public Question randomQueue(ReadQFiles quizzes) throws FileNotFoundException{
 		// Creates a queue of numbers put in a random order based on the quiz length.
 		// You don't have to worry about repeat questions with these. 
 		 Queue<Integer> q = new LinkedList<>();
-		 int[] questionList = new int[questions.size()];
-		 int QuizLength = questions.size(); //This is meant to be the number of questions in the quiz.
+		 int quizSize = quizzes.size(); //This is meant to be the number of questions in the quiz.
+		 int[] questionList = new int[quizSize];
 		 //Above two lines don't work, please replace "questions.size" to appropriate variable.
-		 for (int quest; quest < QuizLength ; quest++) {
+		 for (int quest; quest < quizSize ; quest++) {
 			 questionList[quest] = quest;
 		 }
 		 Random rng = new Random();
@@ -58,7 +58,7 @@ public class UserInterface{
 				questionList[randomIndex] = questionList[i];
 				questionList[i] = temp;
 			}
-		 for (int question; question < QuizLength ; question++) {
+		 for (int question; question < quizSize ; question++) {
 			 q.add(questionList[question]);
 		 }
 		 //q.pop() can be used to remove a question that is already done.
