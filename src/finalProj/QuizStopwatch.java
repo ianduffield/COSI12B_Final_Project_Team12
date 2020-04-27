@@ -3,7 +3,8 @@ import java.time.Instant;
 import java.time.Duration;
 
 /**
- * Records how long a player takes to complete a quiz, and can have the time be reset for subsequent quizzes.
+ * Records how long a player takes to complete a quiz in minutes, as a "long", though not an int.
+ * Can have the time be reset for subsequent quizzes.
  * @author William
  *
  */
