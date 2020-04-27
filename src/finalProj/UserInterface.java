@@ -31,7 +31,7 @@ public class UserInterface{
 		System.out.println("Type New/Old");
 		if(input.nextLine().equalsIgnoreCase("New")){
 			ReadQFiles newQ = new ReadQFiles();
-			WriteQFiles newQuiz = new WriteQFiles(newQ);
+			WriteQFiles newQuiz = new WriteQFiles(newQ.getQuizzes());
 			System.out.println("Would you like to take a quiz now? Yes/No ");
 			if(input.nextLine().equalsIgnoreCase("no")){
 				System.exit(0);;
@@ -39,6 +39,9 @@ public class UserInterface{
 		}
 		int score = 0;
 		ReadQFiles quizzes = new ReadQFiles();
+		System.out.println(quizzes.getQuizzes());
+		System.out.println("Please type the name of your quiz: ");
+		quizzes.readQuestionFile(input.nextLine());
 		Queue<Integer> q = user.randomQueue(quizzes);
 		System.out.println(quizzes.getQuestions().get(q.element()).getQuestion());
 		boolean cont = true;

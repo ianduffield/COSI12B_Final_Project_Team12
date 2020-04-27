@@ -36,7 +36,7 @@ public class ReadQFiles {
 	 * @param fileName
 	 * @throws FileNotFoundException
 	 */
-	private void readQuestionFile(String fileName) throws FileNotFoundException
+	public void readQuestionFile(String fileName) throws FileNotFoundException
 	{
 		Scanner scan = new Scanner(new File(fileName + ".txt"));
 		
