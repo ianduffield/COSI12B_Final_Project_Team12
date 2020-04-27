@@ -27,6 +27,16 @@ public class UserInterface{
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
 		ProfileInformation currentUser = new ProfileInformation(username);
+		System.out.println("Would you like to write your own questions or use an existing quiz?");
+		System.out.println("Type yes/no");
+		if(input.nextLine().equalsIgnoreCase("yes")){
+			ReadQFiles newQ = new ReadQFiles();
+			WriteQFiles newQuiz = new WriteQFiles(newQ);
+			System.out.println("Would you like to take a quiz now? Yes/No ");
+			if(input.nextLine().equalsIgnoreCase("no")){
+				System.exit(0);;
+			}
+		}
 		int score = 0;
 		ReadQFiles quizzes = new ReadQFiles();
 		Queue<Integer> q = user.randomQueue(quizzes);
