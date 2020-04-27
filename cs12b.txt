@@ -1,0 +1,13 @@
+What is the first name of the Cs12b professor? Tim
+What kind of programming did we learn in Cs12b? Java 7 OOP object oriented programming
+How is the exam grading policy for Cs12b? progressive
+What is the first name of the other Cs12b professor? Antonella
+Name at least two of the 4 pillars of object oriented programming? Abstraction Encapsulation Inheritance Polymorphism
+What percentage of the overall grade is the final project (do not include %)? 50
+What percentage of the overall grade are exams (do not include %)? 10
+What percentage of the overall grade is participation (do not include %)? 10
+Write the numerical number of the hardest PA? 0 1 2 3 4 5 6
+What time do recitations start? 6:30 or 630 or 0630
+What background did professor Hickey use for his zoom calls? Brandeis
+What is our team number? 12
+If I am 22 years old now, how old was I 9 years ago?  13

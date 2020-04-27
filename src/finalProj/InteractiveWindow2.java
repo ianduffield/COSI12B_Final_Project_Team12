@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.awt.event.ActionEvent;
 
 public class InteractiveWindow2 {
@@ -74,7 +75,13 @@ public class InteractiveWindow2 {
 			//action of the GUEST BUTTON
 			public void actionPerformed(ActionEvent e) {
 				
-
+				UserInterface user = new UserInterface();
+				try {
+					UserInterface.run("guest");
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		button.setForeground(new Color(165, 42, 42));
@@ -86,6 +93,8 @@ public class InteractiveWindow2 {
 		button_1.addActionListener(new ActionListener() {
 			//action of the NEW USER BUTTON
 			public void actionPerformed(ActionEvent e) {
+				InteractiveUsername user = new InteractiveUsername();
+				user.run();
 				
 			}
 		});

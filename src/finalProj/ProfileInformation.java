@@ -13,7 +13,7 @@ import java.util.Scanner;
 	//returning users. 
 // I believe that we wanted to be able to keep track of a users information
 public class ProfileInformation{
-	private String username;
+	protected String username;
  	
  	
  	public ProfileInformation (String user){
