@@ -45,11 +45,11 @@ public class WriteQFiles {
 			}
 		}
 		
-		q.quizzes.add(quizName);
+		quizzes.add(quizName);
 		
 		// Writing the questions to a file
 		try {
-		writeQuizFile(q.getQuizzes());
+		writeQuizFile(quizzes);
 		writeQuestionFile(questions, quizName);
 		}
 		catch (IOException ex){
