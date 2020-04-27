@@ -22,24 +22,13 @@ public class ReadQFiles {
 		// Opening Quizzes File
 		Scanner scan = new Scanner(new File("Quizzes.txt"));
 		
-		System.out.println("Here are all avaliable quizzes:");
-		
 		// While loop to scan through file
 		while(scan.hasNextLine()) {
 			String line = scan.nextLine();
-			System.out.println(line);
 			
 			// Adding lines to quizzes ArrayList
 			quizzes.add(line);
 		}
-		
-		// Retrieving information from console
-		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Please select a quiz:");
-		String quiz = keyboard.nextLine();
-		
-		// 
-		readQuestionFile(quiz);
 	}
 	
 	/**
