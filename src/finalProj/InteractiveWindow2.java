@@ -1,3 +1,4 @@
+
 package finalProj;
 
 import java.awt.EventQueue;
@@ -70,20 +71,7 @@ public class InteractiveWindow2 {
 		frame.getContentPane().add(txtWhichOfThe);
 
 		button = new JButton("Guest");
-		button.addActionListener(new ActionListener() {
-			
-			//action of the GUEST BUTTON
-			public void actionPerformed(ActionEvent e) {
-				
-				UserInterface user = new UserInterface();
-				try {
-					UserInterface.run("guest");
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
+		
 		button.setForeground(new Color(165, 42, 42));
 		button.setBackground(new Color(255, 240, 245));
 		button.setBounds(40, 129, 80, 29);
@@ -94,7 +82,6 @@ public class InteractiveWindow2 {
 			//action of the NEW USER BUTTON
 			public void actionPerformed(ActionEvent e) {
 				InteractiveUsername user = new InteractiveUsername();
-				user.run();
 				
 			}
 		});

@@ -9,14 +9,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InteractiveUsername {
+	public String name;
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField txtWhatIsYour;
 	private JTextField textField;
 
 	/**
 	 * Launch the application.
-	 */
+	
 	public static void run() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -30,17 +31,19 @@ public class InteractiveUsername {
 		});
 	}
 
-	/**
+
 	 * Create the application.
-	 */
+	 
 	public InteractiveUsername() {
 		initialize();
 	}
 
-	/**
+	/*
 	 * Initialize the contents of the frame.
+	 * @wbp.parser.entryPoint
 	 */
-	private void initialize() {
+	public String initialize() {
+		this.name = null;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,12 +60,13 @@ public class InteractiveUsername {
 		textField = new JTextField();
 		textField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String name = textField.getText();
-				System.out.println(name);
+				 name = textField.getText();
+
 }
 		});
 		textField.setBounds(159, 121, 183, 51);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		return name;
 	}
 }

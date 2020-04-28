@@ -26,8 +26,8 @@ public class UserInterface{
 		System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
-		ProfileInformation currentUser = new ProfileInformation(username);
-		System.out.println(currentUser.readUserRecord());
+		Profileinformation currentUser = new Profileinformation(username);
+		currentUser.readUserRecord();
 		QuizStopwatch timer = new QuizStopwatch();
 		timer.QuizStart();
 		System.out.println("Would you like to write your own questions or use an existing quiz?");
@@ -57,7 +57,9 @@ public class UserInterface{
 			} else {
 			score = user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(q.element()), score);
 			q.remove();
-			System.out.println(quizzes.getQuestions().get(q.element()).getQuestion());
+			String NewQuestion = quizzes.getQuestions().get(q.element()).getQuestion();
+			currentUser.UserProgress(NewQuestion);
+			System.out.println(NewQuestion);
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
 		System.out.println("Your quiz session lasted " + timer.QuizTime() + " minutes");
@@ -90,17 +92,16 @@ public class UserInterface{
  	// The interface uses this method to call and generate a new question using the current queue number available.
 	}
 
-	public int checkAnswer(String[] answer, ProfileInformation currentUser, ReadQFiles quizzes, Question currentQ, int score) throws IOException{
+	public int checkAnswer(String[] answer, Profileinformation currentUser, ReadQFiles quizzes, Question currentQ, int score) throws IOException{
 		for(int i = 0; i < answer.length; i++){
 			for(int j = 0; j < currentQ.getAnswerList().size(); j++){
 				if(answer[i].toLowerCase().equals(currentQ.getAnswerList().get(j).toLowerCase())){
 					score += 1;
 					System.out.println("That's right! The correct answer was " + currentQ.getAnswer());
-					currentUser.UserProgress(currentQ.id);
 					return score;
 				}
 			} System.out.println("Sorry, the right answer was " + currentQ.getAnswer());
-		} currentUser.UserProgress(currentQ.id);
+		} 
 		return score;
 	}
 }

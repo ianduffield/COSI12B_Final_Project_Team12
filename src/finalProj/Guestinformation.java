@@ -34,7 +34,7 @@ public class Guestinformation{
  	
  	
  	
-	public void InputUserProgress(String Q) throws IOException {
+	public void UserProgress(String Q) throws IOException {
  		
  		String username = this.username+".txt";
 		File file = new File (username);
