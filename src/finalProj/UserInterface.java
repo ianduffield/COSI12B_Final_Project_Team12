@@ -27,6 +27,9 @@ public class UserInterface{
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
 		ProfileInformation currentUser = new ProfileInformation(username);
+		System.out.println(currentUser.readUserRecord());
+		QuizStopwatch timer = new QuizStopwatch();
+		timer.QuizStart();
 		System.out.println("Would you like to write your own questions or use an existing quiz?");
 		System.out.println("Type New/Old");
 		if(input.nextLine().equalsIgnoreCase("New")){
@@ -49,6 +52,7 @@ public class UserInterface{
 		while(cont){
 			String[] answer = input.nextLine().split(" ");
 			if (answer[0].equalsIgnoreCase("stop")){
+				timer.QuizEnd();
 				cont = false;
 			} else {
 			score = user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(q.element()), score);
@@ -56,7 +60,8 @@ public class UserInterface{
 			System.out.println(quizzes.getQuestions().get(q.element()).getQuestion());
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
-		currentUser.Score(score);
+		System.out.println("Your quiz session lasted " + timer.QuizTime() + " minutes");
+		currentUser.record(score, timer.QuizTime());
 	}
 	public Queue<Integer> randomQueue(ReadQFiles quizzes) throws FileNotFoundException{
 		/* Creates a queue of numbers put in a random order based on the quiz length.
