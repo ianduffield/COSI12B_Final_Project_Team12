@@ -52,7 +52,6 @@ public class UserInterface{
 		while(cont){
 			String[] answer = input.nextLine().split(" ");
 			if (answer[0].equalsIgnoreCase("stop")){
-				timer.QuizEnd();
 				cont = false;
 			} else {
 			score = user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(q.element()), score);
@@ -62,8 +61,7 @@ public class UserInterface{
 			System.out.println(NewQuestion);
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
-		System.out.println("Your quiz session lasted " + timer.QuizTime() + " minutes");
-		currentUser.record(score, timer.QuizTime());
+		currentUser.Score(score);
 	}
 	public Queue<Integer> randomQueue(ReadQFiles quizzes) throws FileNotFoundException{
 		/* Creates a queue of numbers put in a random order based on the quiz length.
@@ -101,7 +99,7 @@ public class UserInterface{
 					return score;
 				}
 			} System.out.println("Sorry, the right answer was " + currentQ.getAnswer());
-		} 
+		}
 		return score;
 	}
 }
