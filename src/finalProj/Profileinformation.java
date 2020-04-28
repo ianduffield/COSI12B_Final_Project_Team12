@@ -21,18 +21,18 @@ public class Profileinformation extends Guestinformation {
 	}
  	
 	
-	public void UserProgress(int QID) throws IOException {
+	public void InputUserProgress(String Q) throws IOException {
  		
  		String username = this.username+".txt";
 		File file = new File (username);
-		FileWriter write = new FileWriter(file);
+		FileWriter write = new FileWriter(file, true);
 		PrintWriter input = new PrintWriter(write);
 
 		
-	input.print(QID);
-		input.print("       ");
+	input.println(Q);
 	input.close();
  	}
+ 		
  		
 
 }

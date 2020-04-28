@@ -34,16 +34,15 @@ public class Guestinformation{
  	
  	
  	
-	public void UserProgress(int QID) throws IOException {
+	public void InputUserProgress(String Q) throws IOException {
  		
  		String username = this.username+".txt";
 		File file = new File (username);
-		FileWriter write = new FileWriter(file, true);
+		FileWriter write = new FileWriter(file);
 		PrintWriter input = new PrintWriter(write);
 
 		
-	input.print(QID);
-		input.print("       ");
+	input.println(Q);
 	input.close();
  	}
  		
@@ -83,12 +82,13 @@ public class Guestinformation{
 		
  	
 	
- 	public void readUserQID() throws FileNotFoundException {
+ 	public void PreviousProgress() throws FileNotFoundException {
 		String username = this.username+".txt";
  		try (Scanner read = new Scanner (new File (username))) {
-			while (read.hasNext()){
-				int QID = read.nextInt(); //how you want to use this? also how were user answers stored again?
-				
+			while (read.hasNextLine()){
+				System.out.println();
+				Scanner read2 = new Scanner (read.nextLine());
+				System.out.print(read2.next());
 				
 			}
 		}
