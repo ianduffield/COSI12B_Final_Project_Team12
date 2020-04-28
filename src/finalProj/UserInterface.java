@@ -1,7 +1,7 @@
 package finalProj;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
+import java.io.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -26,10 +26,30 @@ public class UserInterface{
 		System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
 		Scanner input = new Scanner(System.in);
 		String username = input.nextLine();
-		Profileinformation currentUser = new Profileinformation(username);
-		currentUser.readUserRecord();
+		
+		Guestinformation currentUser; 
+		
+		if (username.equalsIgnoreCase("guest")) {
+			 currentUser = new Guestinformation(username);
+
+		}
+		else {
+			 currentUser = new Profileinformation(username);
+
+		}
+		
+		File checkRecordExists = new File(username+"record"+".txt");
+		if (checkRecordExists.exists()) {
+			currentUser.readUserRecord();
+
+		}
+		
+		
 		QuizStopwatch timer = new QuizStopwatch();
+		timer.QuizReset();
+
 		timer.QuizStart();
+		
 		System.out.println("Would you like to write your own questions or use an existing quiz?");
 		System.out.println("Type New/Old");
 		if(input.nextLine().equalsIgnoreCase("New")){
@@ -54,14 +74,17 @@ public class UserInterface{
 			if (answer[0].equalsIgnoreCase("stop")){
 				cont = false;
 			} else {
-			score = user.checkAnswer(answer, currentUser, quizzes, quizzes.getQuestions().get(q.element()), score);
+			score = user.checkAnswer(answer, quizzes, quizzes.getQuestions().get(q.element()), score);
 			q.remove();
 			String NewQuestion = quizzes.getQuestions().get(q.element()).getQuestion();
 			currentUser.UserProgress(NewQuestion);
 			System.out.println(NewQuestion);
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
-		currentUser.record(score, timer.QuizTime());
+		
+		timer.QuizEnd();
+
+		currentUser.record(score, timer.QuizTime()); 
 	}
 	public Queue<Integer> randomQueue(ReadQFiles quizzes) throws FileNotFoundException{
 		/* Creates a queue of numbers put in a random order based on the quiz length.
@@ -90,7 +113,7 @@ public class UserInterface{
  	// The interface uses this method to call and generate a new question using the current queue number available.
 	}
 
-	public int checkAnswer(String[] answer, Profileinformation currentUser, ReadQFiles quizzes, Question currentQ, int score) throws IOException{
+	public int checkAnswer(String[] answer, ReadQFiles quizzes, Question currentQ, int score) throws IOException{
 		for(int i = 0; i < answer.length; i++){
 			for(int j = 0; j < currentQ.getAnswerList().size(); j++){
 				if(answer[i].toLowerCase().equals(currentQ.getAnswerList().get(j).toLowerCase())){
@@ -101,5 +124,9 @@ public class UserInterface{
 			} System.out.println("Sorry, the right answer was " + currentQ.getAnswer());
 		}
 		return score;
-	}
+	}	
+	
+	
+	
+	
 }

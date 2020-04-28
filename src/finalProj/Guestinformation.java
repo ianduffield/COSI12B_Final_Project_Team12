@@ -67,7 +67,7 @@ public class Guestinformation{
 	public void readUserRecord() throws IOException {
 		String username = this.username+"record"+".txt";
 		Scanner read = new Scanner (new File (username));
-		int i = 0;
+		int i = 1;
 			while (read.hasNextLine()){
 				Scanner read2 = new Scanner (read.nextLine());
 				String Score = read2.next();

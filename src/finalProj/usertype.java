@@ -39,7 +39,7 @@ public class usertype extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public String usertype1() {
+	public void welcomeMessage() {
 
 		this.name = null;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,16 +50,11 @@ public class usertype extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e) {
-				 name = textField.getText();
-			}
-		});
+		
 		textField.setBounds(164, 97, 130, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		return name;
 
 	}
 }
