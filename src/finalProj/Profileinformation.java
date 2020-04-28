@@ -5,14 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class guestinformation extends ProfileInformation {
+public class Profileinformation extends Guestinformation {
 
-	public guestinformation(String user) {
+	public Profileinformation(String user) {
 		super(user);
 		// TODO Auto-generated constructor stub
 	}
 	
- 	public void newUserFile() throws IOException{
+ 	public void UserFile() throws IOException{
  		//This method is called when a user is a first time user
 		String username1 = username+".txt";
 		File file = new File (username1);

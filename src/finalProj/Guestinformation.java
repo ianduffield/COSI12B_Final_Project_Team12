@@ -12,11 +12,11 @@ import java.util.Scanner;
 //guest to not save...
 	//returning users. 
 // I believe that we wanted to be able to keep track of a users information
-public class ProfileInformation{
+public class Guestinformation{
 	protected String username;
  	
  	
- 	public ProfileInformation (String user){
+ 	public Guestinformation (String user){
 		this.username = user;
 		
 	}
@@ -50,31 +50,37 @@ public class ProfileInformation{
  	
  	
  	
-	public void Score(int score) throws IOException {
-		String username = this.username+"Score"+".txt";
+	public void record(int score, long time ) throws IOException {
+		String username = this.username+"record"+".txt";
 		File file = new File (username);
 		FileWriter write = new FileWriter(file);
 		PrintWriter input = new PrintWriter(write);
 
 		
-	input.print(score);
+	input.print(score);input.print("    ");input.print(time);
+	input.println();
 	input.close();
 		
  		
  	}
  	
  
-	public void PreviousScore() throws IOException {
-		String username = this.username+"Score"+".txt";
-		try (Scanner read = new Scanner (new File (username))) {
-			while (read.hasNext()){
-				int QID = read.nextInt();
+	public void readUserRecord() throws IOException {
+		String username = this.username+"record"+".txt";
+		Scanner read = new Scanner (new File (username));
+		int i = 0;
+			while (read.hasNextLine()){
+				Scanner read2 = new Scanner (read.nextLine());
+				String Score = read2.next();
+				String time = read2.next();
+				System.out.println("Your score for session "+i+" was "+Score+" and you spent " + time + " minutes");
+				i++;
 		
  		
  	}
 		}
 	
-		}
+		
  	
 	
  	public void readUserQID() throws FileNotFoundException {
