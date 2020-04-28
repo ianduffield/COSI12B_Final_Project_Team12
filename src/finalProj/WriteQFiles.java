@@ -5,7 +5,7 @@ import java.io.*;
 
 public class WriteQFiles {
 	
-	public WriteQFiles(ReadQFiles q) {// Need to be passed original readQFiles
+	public WriteQFiles(ArrayList<String> quizzes) {// Need to be passed original readQFiles
 		
 		// Access to keyboard
 		Scanner keyboard = new Scanner(System.in);
@@ -45,11 +45,11 @@ public class WriteQFiles {
 			}
 		}
 		
-		q.quizzes.add(quizName);
+		quizzes.add(quizName);
 		
 		// Writing the questions to a file
 		try {
-		writeQuizFile(q.getQuizzes());
+		writeQuizFile(quizzes);
 		writeQuestionFile(questions, quizName);
 		}
 		catch (IOException ex){
