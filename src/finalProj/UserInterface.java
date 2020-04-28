@@ -61,7 +61,7 @@ public class UserInterface{
 			System.out.println(NewQuestion);
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
-		currentUser.Score(score);
+		currentUser.record(score, timer.QuizTime());
 	}
 	public Queue<Integer> randomQueue(ReadQFiles quizzes) throws FileNotFoundException{
 		/* Creates a queue of numbers put in a random order based on the quiz length.
