@@ -38,7 +38,7 @@ public class WriteQFiles {
 			
 			// Updating cont
 			System.out.println("Do you want to continue? (Y/N)");
-			String contText = keyboard.next();
+			String contText = keyboard.nextLine();
 			
 			if((contText.toLowerCase().equals("n"))){
 				cont = false;

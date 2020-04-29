@@ -23,9 +23,6 @@ public class UserInterface{
 
 	public static void main(String[] args) throws IOException{
 		UserInterface user = new UserInterface();
-		WelcomeMessage welcome = new WelcomeMessage();
-			welcome.setVisible(true);
-				welcome.welcomeMessage();
 		System.out.println("Welcome to the Platinum Trivia App!");
 		System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
 		Scanner input = new Scanner(System.in);
@@ -86,6 +83,17 @@ public class UserInterface{
 			String NewQuestion = quizzes.getQuestions().get(q.element()).getQuestion();
 			currentUser.UserProgress(NewQuestion);
 			System.out.println(NewQuestion);
+			}
+			if (index == quizzes.getQuestions().size()){
+				String[] answer2 = input.nextLine().split(" ");
+				if (answer2[0].equalsIgnoreCase("stop")){
+					cont = false;
+				}
+				else {
+				index++;
+				score = user.checkAnswer(answer, quizzes, quizzes.getQuestions().get(q.element()), score);
+				q.remove();
+				}
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
 		
