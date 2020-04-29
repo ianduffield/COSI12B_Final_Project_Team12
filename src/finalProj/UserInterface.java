@@ -73,11 +73,14 @@ public class UserInterface{
 		Queue<Integer> q = user.randomQueue(quizzes);
 		System.out.println(quizzes.getQuestions().get(q.element()).getQuestion());
 		boolean cont = true;
-		while(cont){
+		int index = 0;
+		while(cont & index != quizzes.getQuestions().size() - 1){
 			String[] answer = input.nextLine().split(" ");
 			if (answer[0].equalsIgnoreCase("stop")){
 				cont = false;
-			} else {
+			}
+			else {
+			index++;
 			score = user.checkAnswer(answer, quizzes, quizzes.getQuestions().get(q.element()), score);
 			q.remove();
 			String NewQuestion = quizzes.getQuestions().get(q.element()).getQuestion();
