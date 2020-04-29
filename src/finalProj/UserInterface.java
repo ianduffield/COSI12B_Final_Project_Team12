@@ -22,12 +22,26 @@ public class UserInterface{
 	
 
 	public static void main(String[] args) throws IOException{
-		UserInterface user = new UserInterface();
-		System.out.println("Welcome to the Platinum Trivia App!");
-		System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
-		Scanner input = new Scanner(System.in);
-		String username = input.nextLine();
 		
+		WelcomeMessage welcome = new WelcomeMessage();
+		welcome.welcomeMessage2();
+		welcome.setVisible(true);
+		
+		
+		
+	//	UsernameInput x = new UsernameInput();
+	//	x.setVisible(true);
+		
+	//	System.out.println("Welcome to the Platinum Trivia App!");
+	//	System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
+	//	String username = input.nextLine();
+	}
+	
+	public static void processname(String username) throws IOException {
+		UserInterface user = new UserInterface();
+
+			Scanner input = new Scanner(System.in);
+
 		Guestinformation currentUser; 
 		
 		if (username.equalsIgnoreCase("guest")) {
