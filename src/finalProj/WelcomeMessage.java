@@ -48,8 +48,8 @@ public class WelcomeMessage extends JFrame {
 
 	public String name;
 
-	private JPanel contentPane;
-	private JTextField textField;
+	public JPanel contentPane;
+	public JTextField textField;
 
 	
 	public static void main(String[] args) {
