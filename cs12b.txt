@@ -10,4 +10,3 @@ Write the numerical number of the hardest PA? ,0 1 2 3 4 5 6
 What time do recitations start? ,6:30 or 630 or 0630
 What background did professor Hickey use for his zoom calls? ,Brandeis
 What is our team number? ,12
-If I am 22 years old now, how old was I 9 years ago?  ,13

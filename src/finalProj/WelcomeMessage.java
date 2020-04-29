@@ -16,7 +16,22 @@ import java.awt.Font;
 
 public class WelcomeMessage extends JFrame {
 	
-	public WelcomeMessage() {
+	
+	/**
+	 * 
+	 */
+
+	public String name;
+
+	public JPanel contentPane;
+	public JTextField textField;
+
+	
+
+
+	
+	public void welcomeMessage() {
+		
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
@@ -41,32 +56,6 @@ public class WelcomeMessage extends JFrame {
 		lblNewLabel_3.setFont(new Font("Lucida Grande", Font.PLAIN, 8));
 		lblNewLabel_3.setBounds(17, 221, 427, 51);
 		panel.add(lblNewLabel_3);
-	}
-	/**
-	 * 
-	 */
-
-	public String name;
-
-	public JPanel contentPane;
-	public JTextField textField;
-
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WelcomeMessage frame = new WelcomeMessage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	public void welcomeMessage() {
 					
 
 		this.name = null;
