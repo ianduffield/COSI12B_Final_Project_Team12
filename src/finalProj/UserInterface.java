@@ -19,9 +19,13 @@ import java.util.Queue;
  *
  */
 public class UserInterface{
+	
 
 	public static void main(String[] args) throws IOException{
 		UserInterface user = new UserInterface();
+		WelcomeMessage welcome = new WelcomeMessage();
+			welcome.setVisible(true);
+				welcome.welcomeMessage();
 		System.out.println("Welcome to the Platinum Trivia App!");
 		System.out.println("Please enter your username as one String, type 'guest' if you are a guest: ");
 		Scanner input = new Scanner(System.in);
