@@ -88,9 +88,13 @@ public class Guestinformation{
 			while (read.hasNextLine()){
 				System.out.println();
 				Scanner read2 = new Scanner (read.nextLine());
-				System.out.print(read2.next());
-				
+				while (read2.hasNext()) {
+				System.out.print(read2.next()+" ");
+				}
 			}
+			System.out.println();
+			System.out.println();
+
 		}
  		
  	}

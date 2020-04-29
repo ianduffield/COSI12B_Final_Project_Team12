@@ -54,12 +54,20 @@ public class UserInterface{
 		}
 		
 		File checkRecordExists = new File(username+"record"+".txt");
-		if (checkRecordExists.exists()) {
+		if (checkRecordExists.exists()&& !username.equalsIgnoreCase("guest") ) {
 			currentUser.readUserRecord();
 
 		}
 		
 		
+		File checkUserExists = new File(username+".txt");
+		if (checkUserExists.exists()&& !username.equalsIgnoreCase("guest")) {
+		System.out.println("Welcome Back!" +" would you like to see a list of the questions that you answered in previou sessions? y/n");
+		if(input.nextLine().equalsIgnoreCase("y")){
+			currentUser.PreviousProgress();
+		}
+		}
+				
 		QuizStopwatch timer = new QuizStopwatch();
 		timer.QuizReset();
 
@@ -70,8 +78,8 @@ public class UserInterface{
 		if(input.nextLine().equalsIgnoreCase("New")){
 			ReadQFiles newQ = new ReadQFiles();
 			WriteQFiles newQuiz = new WriteQFiles(newQ.getQuizzes());
-			System.out.println("Would you like to take a quiz now? Yes/No ");
-			if(input.nextLine().equalsIgnoreCase("no")){
+			System.out.println("Would you like to take a quiz now? y/n ");
+			if(input.nextLine().equalsIgnoreCase("n")){
 				System.exit(0);
 			}
 		}
