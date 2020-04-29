@@ -114,6 +114,8 @@ public class UserInterface{
 		timer.QuizEnd();
 
 		currentUser.record(score, timer.QuizTime()); 
+		System.exit(0);
+
 	}
 	public Queue<Integer> randomQueue(ReadQFiles quizzes) throws FileNotFoundException{
 		/* Creates a queue of numbers put in a random order based on the quiz length.

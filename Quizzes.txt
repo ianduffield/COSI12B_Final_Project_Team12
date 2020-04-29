@@ -1,6 +1,3 @@
 MCAT
 cs12b
-
-art
-demonstration
-Testing
+demoQ
