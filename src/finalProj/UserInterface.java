@@ -106,16 +106,14 @@ public class UserInterface{
 			currentUser.UserProgress(NewQuestion);
 			System.out.println(NewQuestion);
 			}
-			if (index+1 == quizzes.getQuestions().size()){
+			if (index == quizzes.getQuestions().size()){
 				String[] answer2 = input.nextLine().split(" ");
 				if (answer2[0].equalsIgnoreCase("stop")){
 					cont = false;
-					break;
 				}
 				else {
 				index++;
 				score = user.checkAnswer(answer, quizzes, quizzes.getQuestions().get(q.element()), score);
-				break;
 				}
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
