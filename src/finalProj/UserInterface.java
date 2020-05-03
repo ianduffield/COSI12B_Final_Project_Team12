@@ -93,7 +93,7 @@ public class UserInterface{
 		System.out.println(quizzes.getQuestions().get(q.element()).getQuestion());
 		boolean cont = true;
 		int index = 0;
-		while(cont & index != quizzes.getQuestions().size() - 1){
+		while(cont){
 			String[] answer = input.nextLine().split(" ");
 			if (answer[0].equalsIgnoreCase("stop")){
 				cont = false;
@@ -106,15 +106,16 @@ public class UserInterface{
 			currentUser.UserProgress(NewQuestion);
 			System.out.println(NewQuestion);
 			}
-			if (index == quizzes.getQuestions().size()){
+			if (index+1 == quizzes.getQuestions().size()){
 				String[] answer2 = input.nextLine().split(" ");
 				if (answer2[0].equalsIgnoreCase("stop")){
 					cont = false;
+					break;
 				}
 				else {
 				index++;
 				score = user.checkAnswer(answer, quizzes, quizzes.getQuestions().get(q.element()), score);
-				q.remove();
+				break;
 				}
 			}
 		} System.out.println("Hope you had fun! Your score for this session was " + score);
