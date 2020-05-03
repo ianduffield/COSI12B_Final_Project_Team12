@@ -1,7 +1,6 @@
 package finalProj;
 import java.util.Scanner;
 import java.io.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -102,7 +101,12 @@ public class UserInterface{
 			index++;
 			score = user.checkAnswer(answer, quizzes, quizzes.getQuestions().get(q.element()), score);
 			q.remove();
-			String NewQuestion = quizzes.getQuestions().get(q.element()).getQuestion();
+			String NewQuestion;
+			if(q.peek()!=null){
+				NewQuestion = quizzes.getQuestions().get(q.element()).getQuestion();
+			} else {
+				break;
+			}
 			currentUser.UserProgress(NewQuestion);
 			System.out.println(NewQuestion);
 			}
